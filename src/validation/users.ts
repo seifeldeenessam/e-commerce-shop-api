@@ -1,4 +1,4 @@
-import { PASSWORD_REGEX, USER_TYPE } from '@/constants';
+import { PASSWORD_REGEX } from '@/constants';
 import type { Schema } from 'express-validator';
 
 export const userCreateSchema: Schema = {
@@ -13,10 +13,5 @@ export const userCreateSchema: Schema = {
 	password: {
 		notEmpty: { errorMessage: 'Password is required' },
 		matches: { options: PASSWORD_REGEX, errorMessage: 'Week password' }
-	},
-	type: {
-		isString: true,
-		notEmpty: { errorMessage: 'Type is required' },
-		matches: { options: USER_TYPE, errorMessage: 'Invalid type' }
 	}
 };
